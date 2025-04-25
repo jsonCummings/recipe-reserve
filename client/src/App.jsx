@@ -10,7 +10,12 @@ function App() {
       .then(data => setPing(data.message));
   }, []);
 
-  return <h1>Backend says: {ping}</h1>;
+  return (
+    <section>
+      <h1>Recipe App</h1>
+      <h3>Backend says: {ping}</h3>
+    </section>
+  );
 }
 
 export default App;
