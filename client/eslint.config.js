@@ -19,6 +19,7 @@ export default [
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      jest: pluginJest,
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -28,6 +29,12 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      ...pluginJest.configs.recommended.rules,
+    },
+    languageOptions: {
+      globals: {
+        ...pluginJest.environments.globals.globals,
+      },
     },
   },
 ]

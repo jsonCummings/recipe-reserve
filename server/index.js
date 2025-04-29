@@ -47,30 +47,66 @@ app.get('/api/recipes/:id', async (req, res) => {
   try {
     const recipeId = req.params.id;
 
-    const [rows] = await pool.query(`
-      SELECT *
+    // Query for the main recipe details
+    const [recipeRows] = await pool.query(`
+      SELECT id, title, image_url, subtitle, author, url
       FROM recipes
       WHERE id = ?
     `, [recipeId]);
 
-    if (rows.length === 0) {
+    if (recipeRows.length === 0) {
       return res.status(404).json({ error: 'Recipe not found' });
     }
 
-    const recipe = rows[0];
+    const recipe = recipeRows[0];
 
-    // Parse JSON fields
-    const parsedRecipe = {
-      ...recipe,
-      // details: JSON.parse(recipe.recipe_details),
-      // ingredients: JSON.parse(recipe.ingredients),
-      // instructions: JSON.parse(recipe.instructions),
-      // notes: JSON.parse(recipe.notes),
-      // tags: JSON.parse(recipe.tags),
-      // tags2: JSON.parse(recipe.recipe_tags),
-    };
+    // Query for recipe details
+    const [details] = await pool.query(`
+      SELECT detail_key, detail_value
+      FROM recipe_details
+      WHERE recipe_id = ?
+    `, [recipeId]);
 
-    res.json(parsedRecipe);
+    // Query for ingredients
+    const [ingredients] = await pool.query(`
+      SELECT ingredient
+      FROM ingredients
+      WHERE recipe_id = ?
+    `, [recipeId]);
+
+    // Query for instructions
+    const [instructions] = await pool.query(`
+      SELECT step_number, instruction
+      FROM instructions
+      WHERE recipe_id = ?
+      ORDER BY step_number ASC
+    `, [recipeId]);
+
+    // Query for notes
+    const [notes] = await pool.query(`
+      SELECT note
+      FROM notes
+      WHERE recipe_id = ?
+    `, [recipeId]);
+
+    // Query for tags
+    const [tags] = await pool.query(`
+      SELECT tags.name
+      FROM recipe_tags
+      JOIN tags ON recipe_tags.tag_id = tags.id
+      WHERE recipe_tags.recipe_id = ?
+    `, [recipeId]);
+    
+    res.json({
+      recipe: {
+        ...recipe,
+        details,
+        ingredients,
+        instructions,
+        notes,
+        tags: tags.map(tag => tag.name),
+      },
+    });
   } catch (err) {
     console.error('Error retrieving recipe:', err);
     res.status(500).json({ error: 'Internal server error' });
