@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchRecipes } from '../api/recipes';
 import { Link } from 'react-router-dom';
+import '../styles/recipesList.css';
 
 export default function RecipesList() {
   const [recipes, setRecipes] = useState([]);
@@ -13,24 +14,40 @@ export default function RecipesList() {
   }, []);
 
   if (error) return <p role="alert">Error: {error}</p>;
-
+  console.log('Fetched recipes:', recipes);
   return (
     <div>
-      <h1>Recipes</h1>
       {recipes.length === 0 ? (
-        <p>Loading...</p>
+        <p>Recipes Loading...</p>
       ) : (
-        <ul>
-          {recipes.map((recipe) => (
-            <li key={recipe.id} data-testid="recipe-card">
-              <h2>{recipe.title}</h2>
-              <img src={recipe.image_url} alt={recipe.title} width={150} />
-              <p>{recipe.details?.map((d) => Object.entries(d)[0].join(': ')).join(', ')}</p>
-              <p>{recipe.tags?.join(', ')}</p>
-              <Link to={`/recipes/${recipe.id}`}>View Full Recipe</Link>
-            </li>
-          ))}
-        </ul>
+        <>
+          <h4 className='recipesCount'>
+            <b>{recipes.length} </b>
+            Recipes
+          </h4>
+          <section className="recipesList">
+            {recipes.map((recipe) =>
+              (
+              <Link to={`/recipes/${recipe.id}`} className="recipeCard" key={recipe.id}>
+                {/* hack to get around the image url issue */}
+                <img src={recipe.image_url.slice(0, -1)} alt={recipe.title} />
+                <div className='tagHolder'>
+                  {recipe.tags?.map((tag, i) => (
+                    <span key={i} className="tag">{tag}</span>
+                  ))}
+                </div>
+                <span className='recipeTitle'>{recipe.title}</span>
+                <span className='recipeAuthor'>{recipe.author}</span>
+                  {recipe.details?.map((d) => {
+                    if ((d.detail_key === 'Cook Time') || (d.detail_key === 'Servings')) {
+                      return <span className="recipeDetails">{d.detail_key}: {d.detail_value}</span>;
+                    }
+                  })}
+                <i className='rankingStars' data-star={`${recipe.rating}`}></i>
+              </Link>
+            ))}
+          </section>
+        </>
       )}
     </div>
   );

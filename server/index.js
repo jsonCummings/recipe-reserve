@@ -24,17 +24,27 @@ app.listen(PORT, () =>
 );
 
 // GET all recipes (summary only)
+const tempTags = ['Vegetarian', 'Under 30 Minutes', 'Bring to Friends'];
+const tempDetails = [
+  { detail_key: 'Prep Time', detail_value: '15 minutes' },
+  { detail_key: 'Cook Time', detail_value: '30 minutes' },
+  { detail_key: 'Servings', detail_value: '4 servings' },
+];
+
 app.get('/api/recipes', async (req, res) => {
   try {
-    const [rows] = await pool.query(`SELECT id, title, image_url FROM recipes`);
+    // const [rows] = await pool.query(`SELECT id, title, author, url, image_url FROM recipes`);
+    // console.log('Retrieved recipes:', rows);
+    const [rows] = await pool.query(`SELECT id, title, author, image_url FROM recipes`);
 
     // Parse JSON fields (details and tags)
     const parsedRows = rows.map(recipe => ({
       ...recipe,
-      // details: JSON.parse(recipe.details),
-      // tags: JSON.parse(recipe.tags),
+      details: tempDetails,
+      tags: tempTags,
+      rating: Math.floor(Math.random() * 5) + 1, // Random rating between 1 and 5
     }));
-
+  console.log('Parsed recipes:', parsedRows);
     res.json(parsedRows);
   } catch (err) {
     console.error('Error retrieving recipes:', err);

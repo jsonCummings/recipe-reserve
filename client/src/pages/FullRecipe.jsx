@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchFullRecipe } from '../api/recipes'
-import '../styles/FullRecipe.css';
+import '../styles/fullRecipe.css';
 
 export default function FullRecipe() {
   const { id } = useParams()
