@@ -5,8 +5,8 @@ export default function Welcome() {
 
   useEffect(() => {
     fetch('/api/ping')
-      .then(res => res.json())
-      .then(data => setPing(data.message));
+      .then((res) => res.json())
+      .then((data) => setPing(data.message));
   }, []);
 
   return (

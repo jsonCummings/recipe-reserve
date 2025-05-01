@@ -7,9 +7,9 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-  --light-green: #C7DDC9;
-  --green: #406D73;
-  --dark-green: #102F33;
+  --light-green: #c7ddc9;
+  --green: #406d73;
+  --dark-green: #102f33;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -56,14 +56,14 @@ button:focus-visible {
 }
 
 /* @media (prefers-color-scheme: light) { */
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+:root {
+  color: #213547;
+  background-color: #ffffff;
+}
+a:hover {
+  color: #747bff;
+}
+button {
+  background-color: #f9f9f9;
+}
 /* } */

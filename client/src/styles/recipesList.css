@@ -10,7 +10,7 @@ section.recipesList {
   gap: 3vw;
   margin: 1rem;
   padding-top: 2rem;
- }
+}
 
 a.recipeCard {
   display: flex;
@@ -24,13 +24,14 @@ a.recipeCard {
   max-height: 380px;
   overflow: hidden;
 
-  color: #102F33;
+  color: #102f33;
   background-color: #fefefe;
 }
 
 a.recipeCard:hover {
-  .tagHolder, span { 
-    color: #406D73;
+  .tagHolder,
+  span {
+    color: #406d73;
   }
 }
 
@@ -46,21 +47,21 @@ a.recipeCard > img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: .5rem;
-  margin-top: .5rem;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
   font-size: 0.8rem;
 }
 
 .recipeTitle {
   font-size: 1.25rem;
   font-weight: 900;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .recipeAuthor {
   /* font-size: 1rem; */
   /*font-weight: 500; */
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .recipeDetails {
@@ -75,37 +76,55 @@ a.recipeCard > img {
 }
 
 [data-star] {
-  text-align:left;
-  font-style:normal;
-  display:inline-block;
+  text-align: left;
+  font-style: normal;
+  display: inline-block;
   position: relative;
   unicode-bidi: bidi-override;
 }
 
-[data-star]::before { 
-  display:block;
+[data-star]::before {
+  display: block;
   content: '★★★★★';
   color: #ddd;
 }
 
 [data-star]::after {
-  white-space:nowrap;
-  position:absolute;
-  top:0;
-  left:0;
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
   content: '★★★★★';
   width: 0;
-  color: #102F33;
-  overflow:hidden;
-  height:100%;
+  color: #102f33;
+  overflow: hidden;
+  height: 100%;
 }
 
-[data-star^="1"]::after{width:20%}
-[data-star^="1.5"]::after{width:30%}
-[data-star^="2"]::after{width:40%}
-[data-star^="2.5"]::after{width:50%}
-[data-star^="3"]::after{width:60%}
-[data-star^="3.5"]::after{width:70%}
-[data-star^="4"]::after{width:80%}
-[data-star^="4.5"]::after{width:90%}
-[data-star^="5"]::after{width:100%}
+[data-star^='1']::after {
+  width: 20%;
+}
+[data-star^='1.5']::after {
+  width: 30%;
+}
+[data-star^='2']::after {
+  width: 40%;
+}
+[data-star^='2.5']::after {
+  width: 50%;
+}
+[data-star^='3']::after {
+  width: 60%;
+}
+[data-star^='3.5']::after {
+  width: 70%;
+}
+[data-star^='4']::after {
+  width: 80%;
+}
+[data-star^='4.5']::after {
+  width: 90%;
+}
+[data-star^='5']::after {
+  width: 100%;
+}

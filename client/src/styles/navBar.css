@@ -6,7 +6,6 @@
   background-color: var(--light-green);
   /* border-bottom: 1px solid #ddd; */
   color: #363636;
-
 }
 
 .logo {
@@ -17,20 +16,20 @@
 .links {
   display: flex;
   gap: 3rem;
-  color: #102F33;
+  color: #102f33;
 }
 
 .link {
   text-decoration: none;
   padding: 1rem 0;
   font-size: 1rem;
-  border-bottom: .25rem solid #C7DDC9;
+  border-bottom: 0.25rem solid #c7ddc9;
   color: #363636;
 }
 
 .link.active {
-  color: #406D73;
-  border-bottom: .25rem solid #406D73;
+  color: #406d73;
+  border-bottom: 0.25rem solid #406d73;
   font-weight: bold;
 }
 /* #406D73 */

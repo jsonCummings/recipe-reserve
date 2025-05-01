@@ -23,29 +23,34 @@ export default function RecipesList() {
         <p>Recipes Loading...</p>
       ) : (
         <>
-          <h4 className='recipesCount'>
+          <h4 className="recipesCount">
             <b>{recipes.length} </b>
             Recipes
           </h4>
           <section className="recipesList">
-            {recipes.map((recipe) =>
-              (
+            {recipes.map((recipe) => (
               <Link to={`/recipes/${recipe.id}`} className="recipeCard" key={recipe.id}>
                 {/* hack to get around the image url issue */}
                 <img src={recipe.image_url.slice(0, -1)} alt={recipe.title} />
-                <div className='tagHolder'>
+                <div className="tagHolder">
                   {recipe.tags?.map((tag, i) => (
-                    <span key={i} className="tag">{tag}</span>
+                    <span key={i} className="tag">
+                      {tag}
+                    </span>
                   ))}
                 </div>
-                <span className='recipeTitle'>{recipe.title}</span>
-                <span className='recipeAuthor'>{recipe.author}</span>
-                  {recipe.details?.map((d) => {
-                    if ((d.detail_key === 'Cook Time') || (d.detail_key === 'Servings')) {
-                      return <span className="recipeDetails">{d.detail_key}: {d.detail_value}</span>;
-                    }
-                  })}
-                <i className='rankingStars' data-star={`${recipe.rating}`}></i>
+                <span className="recipeTitle">{recipe.title}</span>
+                <span className="recipeAuthor">{recipe.author}</span>
+                {recipe.details?.map((d) => {
+                  if (d.detail_key === 'Cook Time' || d.detail_key === 'Servings') {
+                    return (
+                      <span className="recipeDetails">
+                        {d.detail_key}: {d.detail_value}
+                      </span>
+                    );
+                  }
+                })}
+                <i className="rankingStars" data-star={`${recipe.rating}`}></i>
               </Link>
             ))}
           </section>

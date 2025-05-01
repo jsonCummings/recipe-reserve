@@ -10,7 +10,7 @@ const mockRecipes = [
     title: 'Quick Chicken Pozole',
     image_url: 'https://example.com/image.jpg',
     details: [{ CookTime: '40 minutes' }],
-    tags: ['Soup', 'Mexican']
+    tags: ['Soup', 'Mexican'],
   },
 ];
 

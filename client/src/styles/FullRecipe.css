@@ -43,8 +43,8 @@
   width: 100%;
 }
 
-
-.recipeIngredients, .recipeTags {
+.recipeIngredients,
+.recipeTags {
   width: 100%;
   max-width: 300px;
   line-height: 2;
@@ -55,13 +55,11 @@
 }
 
 .recipeInstructions {
-  max-width: 1200px; 
-
+  max-width: 1200px;
 }
 
 .recipeNotes {
-  max-width: 1200px; 
-
+  max-width: 1200px;
 }
 
 .recipeTags > div > span {
