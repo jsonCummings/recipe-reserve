@@ -5,6 +5,7 @@ export const fetchRecipes = async () => {
 };
 
 export async function fetchFullRecipe(id) {
-  const res = await fetch(`/api/recipes/${id}`)  // Use id for the query
-  return res.json()
+  // Use id for the query
+  const res = await fetch(`/api/recipes/${id}`);
+  return res.json();
 }

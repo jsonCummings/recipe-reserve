@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchRecipes } from '../api/recipes';
 import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
 import '../styles/recipesList.css';
 
 export default function RecipesList() {
@@ -17,6 +18,7 @@ export default function RecipesList() {
   console.log('Fetched recipes:', recipes);
   return (
     <div>
+      <Nav />
       {recipes.length === 0 ? (
         <p>Recipes Loading...</p>
       ) : (

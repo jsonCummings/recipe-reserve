@@ -8,9 +8,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <nav>
-        <Link to="/recipes">Recipes</Link>
-      </nav>
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/recipes" element={<RecipesList />} />

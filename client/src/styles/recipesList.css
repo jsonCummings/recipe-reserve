@@ -3,7 +3,7 @@
 }
 
 section.recipesList {
-  background-color: #fefefe;
+  /* background-color: #fefefe; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -25,6 +25,7 @@ a.recipeCard {
   overflow: hidden;
 
   color: #102F33;
+  background-color: #fefefe;
 }
 
 a.recipeCard:hover {

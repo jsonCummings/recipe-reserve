@@ -1,0 +1,36 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: var(--light-green);
+  /* border-bottom: 1px solid #ddd; */
+  color: #363636;
+
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  gap: 3rem;
+  color: #102F33;
+}
+
+.link {
+  text-decoration: none;
+  padding: 1rem 0;
+  font-size: 1rem;
+  border-bottom: .25rem solid #C7DDC9;
+  color: #363636;
+}
+
+.link.active {
+  color: #406D73;
+  border-bottom: .25rem solid #406D73;
+  font-weight: bold;
+}
+/* #406D73 */

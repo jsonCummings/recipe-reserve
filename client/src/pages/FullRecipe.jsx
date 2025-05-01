@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { fetchFullRecipe } from '../api/recipes'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchFullRecipe } from '../api/recipes';
+import Nav from '../components/Nav';
 import '../styles/fullRecipe.css';
 
 export default function FullRecipe() {
@@ -21,6 +22,8 @@ export default function FullRecipe() {
   console.log('displayImg', displayImg);
 
   return (
+    <>
+    <Nav />
     <section className='fullRecipe'>
       <section className="recipeHeader">
         <div className="recipeHeaderImage">
@@ -81,5 +84,6 @@ export default function FullRecipe() {
 
       </section>
     </section>
+  </>
   )
 }
