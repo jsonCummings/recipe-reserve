@@ -30,8 +30,7 @@ export default function RecipesList() {
           <section className="recipesList">
             {recipes.map((recipe) => (
               <Link to={`/recipes/${recipe.id}`} className="recipeCard" key={recipe.id}>
-                {/* hack to get around the image url issue */}
-                <img src={recipe.image_url.slice(0, -1)} alt={recipe.title} />
+                <img src={recipe.image_url} alt={recipe.title} />
                 <div className="tagHolder">
                   {recipe.tags?.map((tag, i) => (
                     <span key={i} className="tag">
