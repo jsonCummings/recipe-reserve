@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchFullRecipe } from '../api/recipes';
 import Nav from '../components/Nav';
+import { deleteRecipe } from '../api/recipes';
 import '../styles/fullRecipe.css';
 
 export default function FullRecipe() {
@@ -18,17 +19,25 @@ export default function FullRecipe() {
   if (!recipe) return <div>Loading…</div>;
   console.log('Fetched recipe:', recipe);
 
-  const displayImg = recipe.image_url.slice(0, -1);
-  console.log('displayImg', displayImg);
-
   return (
     <>
       <Nav />
       <section className="fullRecipe">
         <section className="recipeHeader">
           <div className="recipeHeaderImage">
-            <img src={displayImg} alt={recipe.title} className="heroImage" />
+            <img src={recipe.image_url} alt={recipe.title} className="heroImage" />
           </div>
+          <section className="recipeActions">
+            <a href="/recipes" className="goBack">
+              &larr; Back to Recipes
+            </a>
+            <button className="editButton">
+              <a href={`/recipes/${recipe.id}/edit`}>Edit Recipe</a>
+            </button>
+            <button className="deleteButton" onClick={() => deleteRecipe(id)}>
+              Delete
+            </button>
+          </section>
           <h1>{recipe.title}</h1>
           <div className="things">
             {recipe.subtitle ? <span>{recipe.subtitle}</span> : null}
