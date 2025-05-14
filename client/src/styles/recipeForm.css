@@ -1,0 +1,37 @@
+.fullWidth > input {
+  width: 100%;
+}
+
+ .halfWidth {
+  width: 100%;
+ }
+.halfFlex {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+}
+.halfWidth > input {
+  width: 100%;
+}
+
+form > div {
+  margin-bottom: 1rem;
+}
+
+form > h2, form > h4 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+form > .actionsContainer {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.actionsContainer > button:first-of-type {
+  flex-grow: 3;
+}

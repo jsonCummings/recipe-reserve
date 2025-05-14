@@ -39,7 +39,6 @@ const EditRecipePage = () => {
     <>
       <Nav />
       <div className="editRecipePage">
-        <h1>Edit Recipe</h1>
         <RecipeForm recipe={recipe} onSuccess={() => navigate(`/recipes/${id}`)} />
       </div>
     </>

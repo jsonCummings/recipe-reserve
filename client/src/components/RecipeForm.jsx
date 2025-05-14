@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { deleteRecipe } from '../api/recipes';
+import '../styles/recipeForm.css';
 
 const defaultForm = {
   title: '',
@@ -81,56 +82,76 @@ const RecipeForm = ({ recipe, onSuccess }) => {
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: 600, margin: '0 auto' }}>
       <h2>{recipe ? 'Edit Recipe' : 'Add New Recipe'}</h2>
-
-      <input
-        placeholder="Title"
-        value={form.title}
-        onChange={(e) => handleChange('title', e.target.value)}
-      />
-      <input
-        placeholder="Subtitle"
-        value={form.subtitle}
-        onChange={(e) => handleChange('subtitle', e.target.value)}
-      />
-      <input
-        placeholder="Author"
-        value={form.author}
-        onChange={(e) => handleChange('author', e.target.value)}
-      />
-      <input
-        placeholder="URL"
-        value={form.url}
-        onChange={(e) => handleChange('url', e.target.value)}
-      />
-      <input
-        placeholder="Image URL"
-        value={form.image_url}
-        onChange={(e) => handleChange('image_url', e.target.value)}
-      />
+      <div className='fullWidth'>
+        <label for={form.title}>Title</label>
+        <input
+          placeholder="Title"
+          value={form.title}
+          onChange={(e) => handleChange('title', e.target.value)}
+        />
+      </div>
+      <div className='fullWidth'>
+        <label for={form.subtitle}>Subtitle</label>
+        <input
+          placeholder="Subtitle"
+          value={form.subtitle}
+          onChange={(e) => handleChange('subtitle', e.target.value)}
+        />
+      </div>
+      <div className='fullWidth'>
+        <label for={form.author}>Author</label>
+        <input
+          placeholder="Author"
+          value={form.author}
+          onChange={(e) => handleChange('author', e.target.value)}
+        />
+      </div>
+      <div className='fullWidth'>
+        <label for={form.url}>URL</label>
+        <input
+          placeholder="URL"
+          value={form.url}
+          onChange={(e) => handleChange('url', e.target.value)}
+        />
+      </div>
+      <div className='fullWidth'>
+        <label for={form.image_url}>Image URL</label>
+        <input
+          placeholder="Image URL"
+          value={form.image_url}
+          onChange={(e) => handleChange('image_url', e.target.value)}
+        />
+      </div>
 
       <h4>Details</h4>
       {form.details.map((detail, i) => (
-        <div key={i} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
-          <input
-            placeholder="Label"
-            value={detail.detail_key || ''}
-            onChange={(e) =>
-              handleArrayChange('details', i, {
-                ...detail,
-                detail_key: e.target.value,
-              })
-            }
-          />
-          <input
-            placeholder="Value"
-            value={detail.detail_value || ''}
-            onChange={(e) =>
-              handleArrayChange('details', i, {
-                ...detail,
-                detail_value: e.target.value,
-              })
-            }
-          />
+        <div key={i} className="halfFlex">
+          <div className='halfWidth'>
+            <label for={detail.detail_key}>Label</label>
+            <input
+              placeholder="Label"
+              value={detail.detail_key || ''}
+              onChange={(e) =>
+                handleArrayChange('details', i, {
+                  ...detail,
+                  detail_key: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className='halfWidth'>
+            <label for={detail.detail_value}>Value</label>
+            <input
+              placeholder="Value"
+              value={detail.detail_value || ''}
+              onChange={(e) =>
+                handleArrayChange('details', i, {
+                  ...detail,
+                  detail_value: e.target.value,
+                })
+              }
+            />
+          </div>
         </div>
       ))}
       <button
@@ -142,7 +163,8 @@ const RecipeForm = ({ recipe, onSuccess }) => {
 
       <h4>Ingredients</h4>
       {form.ingredients.map((item, i) => (
-        <div key={i}>
+        <div key={i} className='fullWidth'>
+          <label for={item.ingredient}>Ingredient</label>
           <input
             placeholder={`Ingredient ${i + 1}`}
             value={item.ingredient || ''}
@@ -199,17 +221,23 @@ const RecipeForm = ({ recipe, onSuccess }) => {
 
       <h4>Notes</h4>
       {form.notes.map((note, i) => (
-        <input
-          key={i}
-          placeholder={`Note ${i + 1}`}
-          value={note.note || ''}
-          onChange={(e) =>
-            handleArrayChange('notes', i, {
-              ...note,
-              note: e.target.value,
-            })
-          }
-        />
+        <div key={i} className='fullWidth'>
+          <label for={note.note}>Ingredient</label>
+          <input
+            key={i}
+            placeholder={`Note ${i + 1}`}
+            value={note.note || ''}
+            onChange={(e) =>
+              handleArrayChange('notes', i, {
+                ...note,
+                note: e.target.value,
+              })
+            }
+            minLength="3" 
+            maxLength="10"
+            size="10"
+          />
+        </div>
       ))}
       <button type="button" onClick={() => addField('notes', { note: '' })}>
         + Add Note
@@ -217,29 +245,37 @@ const RecipeForm = ({ recipe, onSuccess }) => {
 
       <h4>Tags</h4>
       {form.tags.map((tag, i) => (
-        <input
-          key={i}
-          placeholder={`Tag ${i + 1}`}
-          value={tag}
-          onChange={(e) => handleArrayChange('tags', i, e.target.value)}
-        />
+        <div key={i} className='fullWidth'>
+          <label for={tag}>Tag</label>
+          <input
+            key={i}
+            placeholder={`Tag ${i + 1}`}
+            value={tag}
+            onChange={(e) => handleArrayChange('tags', i, e.target.value)}
+            minLength="3" 
+            maxLength="10"
+            size="10"
+          />
+        </div>
       ))}
       <button type="button" onClick={() => addField('tags', '')}>
         + Add Tag
       </button>
 
-      <br />
-      <br />
-      <button type="submit">{recipe ? 'Update' : 'Submit'} Recipe</button>
-      <button type="button" onClick={() => setForm(defaultForm)}>
-        Reset
-      </button>
-      <button type="button" onClick={() => window.history.back()}>
-        Cancel
-      </button>
-      <button type="button" onClick={() => deleteRecipe(recipe.id)}>
-        Delete
-      </button>
+      <div className='actionsContainer'> 
+        <button type="submit">
+          {recipe ? 'Update' : 'Submit'} Recipe
+        </button>
+        <button type="button" onClick={() => setForm(defaultForm)}>
+          Reset
+        </button>
+        <button type="button" onClick={() => window.history.back()}>
+          Cancel
+        </button>
+        <button type="button" onClick={() => deleteRecipe(recipe.id)}>
+          Delete
+        </button>
+      </div>
     </form>
   );
 };
