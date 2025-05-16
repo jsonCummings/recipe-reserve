@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Nav from '../components/Nav';
 
-import RecipeForm from '../components/RecipeForm';
+import RecipeForm from '../components/RecipeForm/RecipeForm.jsx';
 
 const AddRecipePage = () => {
   const navigate = useNavigate();
