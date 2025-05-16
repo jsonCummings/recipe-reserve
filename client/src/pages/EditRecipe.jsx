@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import Nav from '../components/Nav';
+import Nav from '../components/Nav/Nav.jsx';
 import RecipeForm from '../components/RecipeForm/RecipeForm.jsx';
 
 const EditRecipePage = () => {

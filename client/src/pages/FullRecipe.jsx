@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchFullRecipe } from '../api/recipes';
-import Nav from '../components/Nav';
+import Nav from '../components/Nav/Nav.jsx';
 import { deleteRecipe } from '../api/recipes';
 import '../styles/fullRecipe.css';
 
