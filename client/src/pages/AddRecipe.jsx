@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Nav from '../components/Nav';
+import Nav from '../components/Nav/Nav.jsx';
 
-import RecipeForm from '../components/RecipeForm';
+import RecipeForm from '../components/RecipeForm/RecipeForm.jsx';
 
 const AddRecipePage = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const AddRecipePage = () => {
   return (
     <>
       <Nav />
-      <section className="addPecipePage">
+      <section className="addRecipePage">
         <RecipeForm
           onSuccess={(res) => {
             const newId = res.recipeId;

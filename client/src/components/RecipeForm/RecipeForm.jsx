@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { deleteRecipe } from '../api/recipes';
-import '../styles/recipeForm.css';
+import { deleteRecipe } from '../../api/recipes';
+import './recipeForm.css';
 
 const defaultForm = {
   title: '',
