@@ -1,0 +1,117 @@
+
+a.recipeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 20vw;
+  min-width: 325px;
+  max-width: 420px;
+  max-height: 380px;
+  overflow: hidden;
+
+  color: #102f33;
+  background-color: #fefefe;
+}
+
+a.recipeCard:hover {
+  .tagHolder,
+  span {
+    color: #406d73;
+  }
+}
+
+a.recipeCard > img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tagHolder {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.recipeTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.recipeAuthor {
+  /* font-size: 1rem; */
+  /*font-weight: 500; */
+  margin-bottom: 0.5rem;
+}
+
+.recipeDetails {
+  margin-right: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Ranking Stars */
+.rankingStars {
+  margin-top: 0.5rem;
+}
+
+[data-star] {
+  text-align: left;
+  font-style: normal;
+  display: inline-block;
+  position: relative;
+  unicode-bidi: bidi-override;
+}
+
+[data-star]::before {
+  display: block;
+  content: '★★★★★';
+  color: #ddd;
+}
+
+[data-star]::after {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '★★★★★';
+  width: 0;
+  color: #102f33;
+  overflow: hidden;
+  height: 100%;
+}
+
+[data-star^='1']::after {
+  width: 20%;
+}
+[data-star^='1.5']::after {
+  width: 30%;
+}
+[data-star^='2']::after {
+  width: 40%;
+}
+[data-star^='2.5']::after {
+  width: 50%;
+}
+[data-star^='3']::after {
+  width: 60%;
+}
+[data-star^='3.5']::after {
+  width: 70%;
+}
+[data-star^='4']::after {
+  width: 80%;
+}
+[data-star^='4.5']::after {
+  width: 90%;
+}
+[data-star^='5']::after {
+  width: 100%;
+}

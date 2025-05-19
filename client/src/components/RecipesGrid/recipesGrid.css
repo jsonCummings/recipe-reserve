@@ -1,0 +1,9 @@
+section.recipesList {
+  /* background-color: #fefefe; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vw;
+  margin: 1rem;
+  padding-top: 2rem;
+}

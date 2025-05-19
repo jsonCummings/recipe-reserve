@@ -11,7 +11,7 @@ const AddRecipePage = () => {
   return (
     <>
       <Nav />
-      <section className="addPecipePage">
+      <section className="addRecipePage">
         <RecipeForm
           onSuccess={(res) => {
             const newId = res.recipeId;
