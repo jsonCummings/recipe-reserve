@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+
 import './navBar.css'; // Optional: Add custom styles here
 
 const Nav = () => {
@@ -13,7 +15,7 @@ const Nav = () => {
         <NavLink to="/recipe/add" className="link">
           Add Recipe
         </NavLink>
-        <NavLink to="/logout" className="link">
+        <NavLink to="/" className="link">
           Log Out
         </NavLink>
       </div>

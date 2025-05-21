@@ -4,8 +4,42 @@
   padding: 2rem; */
   width: 100vw;
 }
+
 body {
   width: 100vw;
+}
+@font-face {
+  font-family: 'NunitoSans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url('./assets/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url('./assets/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+}
+
+h1 {
+  font-family: 'NunitoSans', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+body {
+  font-family: 'DMSans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+} 
+
+sm {
+  font-size: .875rem;
 }
 
 /* 
