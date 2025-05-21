@@ -1,5 +1,5 @@
 # Recipe Reserve
-
+## Work in progress
 A minimal, design-led web app for saving your favorite recipes and planning meals for the week. Built to explore custom design systems, UX patterns, and modern front-end architecture.
 
 [View full project write-up →](https://www.jasoncummings.com/projects/recipes)
