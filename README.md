@@ -1,1 +1,37 @@
-# recipe-reserve
+# Recipe Reserve
+
+A minimal, design-led web app for saving your favorite recipes and planning meals for the week. Built to explore custom design systems, UX patterns, and modern front-end architecture.
+
+[View full project write-up →](https://www.jasoncummings.com/projects/recipes)
+
+---
+
+## Features
+
+- Save and browse personal recipes
+- Tagging, ratings, and metadata like cook time + servings
+- Searchable and filterable list view
+- Responsive UI
+- #todo Google Sign-In authentication
+
+
+---
+
+## Tech Stack
+
+- React (w/ React Router)
+- Vite
+- Express + Node.js
+- Auth TBD
+
+---
+
+## 🚀 Getting Started
+
+Clone and run locally:
+
+```bash
+git clone https://github.com/jsonCummings/recipe-reserve.git
+cd recipe-reserve
+npm install
+npm run dev
