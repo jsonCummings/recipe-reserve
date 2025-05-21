@@ -35,3 +35,12 @@ git clone https://github.com/jsonCummings/recipe-reserve.git
 cd recipe-reserve
 npm install
 npm run dev
+```
+You'll also need a .env file in the server folder and a mysql db to store the recipes
+```
+PORT=5050
+DB_HOST=localhost
+DB_USER={USERNAME}
+DB_PASS={PASSWORD}
+DB_NAME={NAME}
+```
